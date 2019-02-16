@@ -2,84 +2,130 @@ from django.db import models
 import datetime
 
 
-class NewsDescription(models.Model):
-    heading = models.CharField(max_length=50)
-    nonheading = models.CharField(max_length=550)
+# class NewsDescription(models.Model):
+#     heading = models.CharField(max_length=50, blank=True)
+#     nonheading = models.CharField(max_length=5550, blank=True)
+
+#     def __str__(self):
+#         return self.heading
+
+
+# class EventsDescription(models.Model):
+#     heading = models.CharField(max_length=50, blank=True)
+#     nonheading = models.CharField(max_length=5550, blank=True)
+
+#     def __str__(self):
+#         return self.heading
 
 
 class News(models.Model):
-    Title = models.CharField(max_length=50)
-    Location = models.CharField(max_length=50)
-    #Description = models.CharField(max_length=550)
+    title = models.CharField(max_length=250, blank=True)
+    location = models.CharField(max_length=250, blank=True)
+    description = models.TextField(max_length=2550, blank=True)
     # Description = models.ForeignKey(to_field=)
-    Description = models.ManyToManyField(NewsDescription, blank=True)
+    #Description = models.ManyToManyField(NewsDescription, blank=True)
 
-    Category = models.CharField(max_length=50)
-    Image = models.ImageField()
+    category = models.CharField(max_length=50, blank=True)
+
+    image = models.ImageField(blank=True)
 
     #created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return self.Title
+        return self.title
 
 
 class Events(models.Model):
-    Title = models.CharField(max_length=50)
-    Event_Date = models.CharField(max_length=50)
-    Event_Time = models.CharField(max_length=50)
-    Location = models.CharField(max_length=150)
-    Description = models.ManyToManyField(NewsDescription, blank=True)
-    # Description = models.CharField(max_length=550)
-    # Description = DescriptionModel(many=True)
-    Organizer_details = models.CharField(max_length=150)
-    Image = models.ImageField()
+    title = models.CharField(max_length=50, blank=True)
+    date = models.CharField(max_length=50, blank=True)
+    from_time = models.CharField(max_length=50, blank=True)
+    to_time = models.CharField(max_length=50, blank=True)
+    location = models.CharField(max_length=150, blank=True)
+    # Description = models.ManyToManyField(NewsDescription, blank=True)
+    description = models.TextField(max_length=2550, blank=True)
+
+    organiserDetails = models.TextField(max_length=1550, blank=True)
+    image = models.ImageField(blank=True)
 
     #created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return self.Title
+        return self.title
+
+
+# class StoriesDescription(models.Model):
+#     category = models.CharField(max_length=50, blank=True)
+#     string = models.CharField(max_length=5550, blank=True)
+
+#     def __str__(self):
+#         return self.category
 
 
 class Stories(models.Model):
-    Title = models.CharField(max_length=50)
-    # Description = models.CharField(max_length=550)
-    # Description = DescriptionModel(many=True)
-    Description = models.ManyToManyField(NewsDescription, blank=True)
-    Image = models.ImageField()
+    title = models.CharField(max_length=50, blank=True)
+    description_heading = models.TextField(max_length=550, blank=True)
+    description_nonheading = models.TextField(max_length=1550, blank=True)
+
+    # Description = models.ManyToManyField(StoriesDescription, blank=True)
+    image = models.ImageField(blank=True)
 
     #created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return self.Title
+        return self.title
+
+
+# class ClassifiedsDescription(models.Model):
+#     category = models.CharField(max_length=50, blank=True)
+#     string = models.CharField(max_length=5550, blank=True)
+
+#     def __str__(self):
+#         return self.category
+
+
+# class ClassifiedsContact(models.Model):
+#     string = models.CharField(max_length=5550, blank=True)
+
+#     def __str__(self):
+#         return self.string
 
 
 class Classifieds(models.Model):
-    Title = models.CharField(max_length=50)
-    Company_name = models.CharField(max_length=50)
-    Contact_details = models.CharField(max_length=550)
+    title = models.CharField(max_length=50, blank=True)
+    companyName = models.CharField(max_length=50, blank=True)
+    contact = models.TextField(max_length=550, blank=True)
+    description = models.TextField(max_length=1550, blank=True)
+    #contact = models.ManyToManyField(ClassifiedsContact, blank=True)
     # Description = models.CharField(max_length=550)
     # Description = DescriptionModel(many=True)
-    Description = models.ManyToManyField(NewsDescription, blank=True)
-    Image = models.ImageField()
+    #description = models.ManyToManyField(ClassifiedsDescription, blank=True)
+    image = models.ImageField(blank=True)
 
     #created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return self.Title
+        return self.title
+
+
+# class JobsOtherDetails(models.Model):
+#     detail_string = models.CharField(max_length=5550, blank=True)
+
+#     def __str__(self):
+#         return self.detail_string
 
 
 class Jobs(models.Model):
-    Title = models.CharField(max_length=50)
-    Company_name = models.CharField(max_length=50)
-    Experience = models.CharField(max_length=550)
-    Email = models.EmailField()
-    Other_details = models.CharField(max_length=550)
+    title = models.CharField(max_length=50, blank=True)
+    company = models.CharField(max_length=50, blank=True)
+    experience = models.CharField(max_length=550, blank=True)
+    email = models.EmailField()
+    otherdetails = models.TextField(max_length=1550, blank=True)
     # Image = models.ImageField()
 
     #created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return self.Title
+        return self.title
 
 
 # class Jogging(models.Model):

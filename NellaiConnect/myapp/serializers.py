@@ -5,32 +5,33 @@ from .models import News, Events, Stories, Classifieds, Jobs
 class NewsSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = News
-        fields = ("id", 'Title', 'Location', 'Description',
-                  'Category', 'Image')
+        fields = ("id", 'title', 'location', 'description',
+                  'category', 'image')
 
 
 class EventsSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Events
-        fields = ("id", 'Title', 'Location', 'Description',
-                  'Event_Date', 'Event_Time', 'Organizer_details', 'Image')
+        fields = ("id", 'title', 'location', 'description',
+                  'date', 'from_time', 'to_time', 'organiserDetails', 'image')
 
 
 class StoriesSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Stories
-        fields = ("id", 'Title', 'Description', 'Image')
+        fields = ("id", 'title', 'description_heading',
+                  'description_nonheading', 'image')
 
 
 class ClassifiedsSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Classifieds
-        fields = ("id", 'Title', 'Description', 'Image',
-                  'Company_name', 'Contact_details')
+        fields = ("id", 'title', 'companyName',
+                  'contact', 'description', 'image')
 
 
 class JobsSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Jobs
-        fields = ("id", 'Title', 'Email', 'Experience',
-                  'Company_name', 'Other_details')
+        fields = ("id", 'title', 'company', 'experience',
+                  'email', 'otherdetails')

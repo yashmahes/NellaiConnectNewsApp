@@ -8,7 +8,7 @@ class NewsViewSet(viewsets.ModelViewSet):
     """
     API endpoint that allows News to be viewed or edited.
     """
-    queryset = News.objects.all().order_by('-date_joined')
+    queryset = News.objects.all()
     serializer_class = NewsSerializer
 
 
@@ -24,7 +24,7 @@ class EventsViewSet(viewsets.ModelViewSet):
     """
     API endpoint that allows Events to be viewed or edited.
     """
-    queryset = Events.objects.all().order_by('-date_joined')
+    queryset = Events.objects.all()
     serializer_class = EventsSerializer
 
 
