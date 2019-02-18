@@ -93,8 +93,10 @@ class Stories(models.Model):
 class Classifieds(models.Model):
     title = models.CharField(max_length=50, blank=True)
     companyName = models.CharField(max_length=50, blank=True)
+
+    description_heading = models.TextField(max_length=550, blank=True)
+    description_nonheading = models.TextField(max_length=1550, blank=True)
     contact = models.TextField(max_length=550, blank=True)
-    description = models.TextField(max_length=1550, blank=True)
     #contact = models.ManyToManyField(ClassifiedsContact, blank=True)
     # Description = models.CharField(max_length=550)
     # Description = DescriptionModel(many=True)

@@ -27,7 +27,8 @@ class ClassifiedsSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Classifieds
         fields = ("id", 'title', 'companyName',
-                  'contact', 'description', 'image')
+                  'contact', 'description_heading',
+                  'description_nonheading', 'image')
 
 
 class JobsSerializer(serializers.HyperlinkedModelSerializer):

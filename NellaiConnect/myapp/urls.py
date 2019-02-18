@@ -16,6 +16,18 @@ router.register('stories', views.StoriesViewSet)
 
 urlpatterns = [
     path('', include(router.urls)),
+    path('getnews', views.getNews),
+    path('getnews/<int:id>', views.getNews),
+    path('getnews/<category>', views.getNewsByCategory),
+
+    path('getstories', views.getStories),
+    path('getstories/<int:id>', views.getStories),
+    path('getevents', views.getEvents),
+    path('getevents/<int:id>', views.getEvents),
+    path('getclassifieds', views.getClassifieds),
+    path('getclassifieds/<int:id>', views.getClassifieds),
+    path('getjobs', views.getJobs),
+    path('getjobs/<int:id>', views.getJobs),
 
 ]
 
